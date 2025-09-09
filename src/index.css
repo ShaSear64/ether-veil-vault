@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iOS-inspired Portfolio Tracker Design System */
+
+@layer base {
+  :root {
+    /* iOS-style neutral palette */
+    --background: 0 0% 100%;
+    --foreground: 220 9% 15%;
+    
+    /* Card system with subtle shadows */
+    --card: 0 0% 100%;
+    --card-foreground: 220 9% 15%;
+    --card-border: 220 13% 91%;
+    
+    /* Translucent surfaces */
+    --glass: 0 0% 100% / 0.8;
+    --glass-border: 220 13% 91% / 0.3;
+    
+    /* Primary brand colors */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-subtle: 214 84% 56% / 0.1;
+    
+    /* Secondary surfaces */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 15%;
+    
+    /* Muted elements */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    /* Accent colors for crypto */
+    --accent-green: 142 69% 58%;
+    --accent-red: 0 84% 60%;
+    --accent-orange: 25 95% 53%;
+    
+    /* Subtle gradients */
+    --gradient-subtle: linear-gradient(135deg, hsl(220 14% 98%), hsl(220 14% 96%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.6));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px 0 hsl(220 13% 0% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(220 13% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 13% 0% / 0.1);
+    --shadow-glass: 0 8px 32px 0 hsl(220 13% 0% / 0.12);
+    
+    /* Border radius system */
+    --radius-sm: 0.375rem;
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* Animation easing */
+    --ease-ios: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.15s var(--ease-ios);
+    --transition-normal: 0.25s var(--ease-ios);
+    --transition-slow: 0.4s var(--ease-ios);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  /* Glass morphism utilities */
+  .glass {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  .glass-header {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid hsl(var(--glass-border));
+  }
+  
+  /* Card shadows */
+  .card-shadow {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card-shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .glass-shadow {
+    box-shadow: var(--shadow-glass);
+  }
+  
+  /* iOS-style animations */
+  .animate-slide-up {
+    animation: slide-up 0.4s var(--ease-ios);
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.3s var(--ease-ios);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

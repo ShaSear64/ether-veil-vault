@@ -1,0 +1,39 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "env": {
+    "VITE_RPC_URL": "@vite_rpc_url",
+    "VITE_CONTRACT_ADDRESS": "@vite_contract_address",
+    "VITE_WALLETCONNECT_PROJECT_ID": "@vite_walletconnect_project_id",
+    "VITE_FHE_NETWORK_URL": "@vite_fhe_network_url",
+    "VITE_FHE_CHAIN_ID": "@vite_fhe_chain_id"
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
